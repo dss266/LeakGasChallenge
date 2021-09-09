@@ -6,7 +6,7 @@ namespace LeakGas.Data.Repositories
 {
     public class LoginRepository : Repository<Login>, ILoginRepository
     {
-        protected LoginRepository(LeakGasContext db) : base(db)
+        public LoginRepository(LeakGasContext db) : base(db)
         {
         }
     }

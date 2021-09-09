@@ -6,7 +6,7 @@ namespace LeakGas.Data.Repositories
 {
     public class OcorrenciaRepository : Repository<Ocorrencia>, IOcorrenciaRepository
     {
-        protected OcorrenciaRepository(LeakGasContext db) : base(db)
+        public  OcorrenciaRepository(LeakGasContext db) : base(db)
         {
         }
     }
