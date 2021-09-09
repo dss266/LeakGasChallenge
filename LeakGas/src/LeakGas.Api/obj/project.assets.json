@@ -628,10 +628,21 @@
           }
         }
       },
+      "LeakGas.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/LeakGas.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LeakGas.Business.dll": {}
+        }
+      },
       "LeakGas.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "LeakGas.Business": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.9"
         },
         "compile": {
@@ -1926,6 +1937,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "LeakGas.Business/1.0.0": {
+      "type": "project",
+      "path": "../LeakGas.Business/LeakGas.Business.csproj",
+      "msbuildProject": "../LeakGas.Business/LeakGas.Business.csproj"
     },
     "LeakGas.Data/1.0.0": {
       "type": "project",
