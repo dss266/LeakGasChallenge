@@ -2,12 +2,12 @@
 
 namespace LeakGas.Business.Models
 {
-    [Table("TB_NIVEL_ACESSO")]
-    public class NivelAcesso
+    [Table("TP_TP_OCORRENCIA")]
+    public class TipoOcorrencia
     {
-        [Column("ID_NIVEL_DE_ACESSO")]
+        [Column("ID_TP_OCORRENCIA")]
         public int Id { get; set; }
-        [Column("DESC_NIVEL")]
+        [Column("DESC_OCORRENCIA")]
         public string Descricao { get; set; }
     }
 }

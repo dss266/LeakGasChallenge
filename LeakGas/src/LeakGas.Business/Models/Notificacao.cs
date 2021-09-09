@@ -2,12 +2,12 @@
 
 namespace LeakGas.Business.Models
 {
-    [Table("TB_NIVEL_ACESSO")]
-    public class NivelAcesso
+    [Table("TB_NOTIFICACAO")]
+    public class Notificacao
     {
-        [Column("ID_NIVEL_DE_ACESSO")]
+        [Column("ID_NOTIFICACAO")]
         public int Id { get; set; }
-        [Column("DESC_NIVEL")]
+        [Column("DESC_NOTIFICACAO")]
         public string Descricao { get; set; }
     }
 }
