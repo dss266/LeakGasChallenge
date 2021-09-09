@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "drRhV+M+o3Sbk9jvoTHtk3PXc3a7mHzwr0CALq4ahGPIzU9jSaJ6p2+6yd2iqOc+vNS8cPatKaN1VEn0sLGgrw==",
+  "dgSpecHash": "4eW3f+0jZfPpRD8yZBTmFARn9q4/REx1vZeRPu6j+7NoUmF+iiWuzjGkgBs0ilSsMI/1XIOjLI2KQy+ujAO9CQ==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\Facul\\LeakGasChallenge\\LeakGas\\src\\LeakGas.Api\\LeakGas.Api.csproj",
   "expectedPackageFiles": [

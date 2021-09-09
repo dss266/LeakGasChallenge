@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GCkyaoM62GV2luCSod2TGXa8UOw4PNNiAP+St6LrTESnIe70IOslrkfoxw6dNVUvQ+OT2FW169NQ7fpMsCvltw==",
+  "dgSpecHash": "/70MFMOAfKd7LkuEPacc26M87dfUALw6Bl2APkjxBs/oZek4bw33jdxT0PzEN9VzmbccK+P5kq+Gwu+AM2OkDA==",
   "success": true,
   "projectFilePath": "C:\\Projetos\\Facul\\LeakGasChallenge\\LeakGas\\src\\LeakGas.Business\\LeakGas.Business.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ruan.araujo\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.9\\microsoft.entityframeworkcore.abstractions.5.0.9.nupkg.sha512"
+  ],
   "logs": []
 }

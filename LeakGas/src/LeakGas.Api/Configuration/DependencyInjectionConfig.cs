@@ -1,4 +1,6 @@
-﻿using LeakGas.Business.Interfaces.Data;
+﻿using LeakGas.Business.Interfaces;
+using LeakGas.Business.Interfaces.Data;
+using LeakGas.Business.Notificacoes;
 using LeakGas.Data.Context;
 using LeakGas.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +17,7 @@ namespace LeakGas.Api.Configuration
         {
             services.AddScoped<LeakGasContext>();
 
-            //services.AddScoped<INotificador, Notificador>();
+            services.AddScoped<INotificador, Notificador>();
 
             #region Repos
             services.AddScoped<ILoginRepository, LoginRepository>();
