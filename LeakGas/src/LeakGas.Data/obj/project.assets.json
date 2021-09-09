@@ -161,6 +161,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
         }
+      },
+      "LeakGas.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/LeakGas.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LeakGas.Business.dll": {}
+        }
       }
     }
   },
@@ -520,10 +530,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "LeakGas.Business/1.0.0": {
+      "type": "project",
+      "path": "../LeakGas.Business/LeakGas.Business.csproj",
+      "msbuildProject": "../LeakGas.Business/LeakGas.Business.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "LeakGas.Business >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.9"
     ]
   },
@@ -558,7 +574,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Projetos\\Facul\\LeakGasChallenge\\LeakGas\\src\\LeakGas.Business\\LeakGas.Business.csproj": {
+              "projectPath": "C:\\Projetos\\Facul\\LeakGasChallenge\\LeakGas\\src\\LeakGas.Business\\LeakGas.Business.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
