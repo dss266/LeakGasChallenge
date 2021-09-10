@@ -646,7 +646,8 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "LeakGas.Business": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "5.0.9"
+          "Microsoft.EntityFrameworkCore": "5.0.9",
+          "Oracle.EntityFrameworkCore": "5.21.3"
         },
         "compile": {
           "bin/placeholder/LeakGas.Data.dll": {}

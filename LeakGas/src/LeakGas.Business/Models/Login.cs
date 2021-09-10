@@ -9,6 +9,7 @@ namespace LeakGas.Business.Models
     {
         [Column("LOGIN")]
         public string Usuario { get; set; }
+        [Column("SENHA")]
         public string Senha { get; set; }
         [Column("FK_ID_USUARIO")]
         public int IdUsuario { get; set; }

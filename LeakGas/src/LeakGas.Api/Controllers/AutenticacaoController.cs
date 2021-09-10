@@ -26,7 +26,7 @@ namespace LeakGas.Api.Controllers
 
             var resp = await _loginRepository.Buscar(l => l.Usuario == loginDTO.Usuario && l.Senha == loginDTO.Senha);
 
-            if (resp != null)
+            if (resp.Count > 0)
             {
                 return CustomResponse();
             }
