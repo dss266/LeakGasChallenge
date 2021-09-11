@@ -22,15 +22,24 @@ namespace LeakGas.Api.Controllers
         [SwaggerResponse(200, type: typeof(Response))]
         public async Task<ActionResult> Login(LoginDTO loginDTO)
         {
-            if (!ModelState.IsValid) return CustomResponse(ModelState);
-
-            var resp = await _loginRepository.Buscar(l => l.Usuario == loginDTO.Usuario && l.Senha == loginDTO.Senha);
-
-            if (resp.Count > 0)
+            try
             {
+                if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+                var resp = await _loginRepository.Buscar(l => l.Usuario == loginDTO.Usuario && l.Senha == loginDTO.Senha);
+
+                if (resp.Count > 0)
+                {
+                    return CustomResponse();
+                }
+                NotificarErro("Usuário ou senha incorretos");
                 return CustomResponse();
             }
-            NotificarErro("Usuário ou senha incorretos");
+            catch (System.Exception e)
+            {
+
+                NotificarErro(e.Message);
+            }
             return CustomResponse();
         }
     }
