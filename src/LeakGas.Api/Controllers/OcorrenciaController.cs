@@ -20,7 +20,7 @@ namespace LeakGas.Api.Controllers
 
         [HttpPost("vazamento")]
         [SwaggerResponse(200, type: typeof(Response))]
-        public async Task<ActionResult> RegistrarVazamento(int idApartamento)
+        public async Task<ActionResult> RegistrarVazamento(int idApartamento, bool status)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
