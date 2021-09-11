@@ -1,8 +1,11 @@
-﻿using LeakGas.Api.Wrapper;
+﻿using AutoMapper;
+using LeakGas.Api.DTO;
+using LeakGas.Api.Wrapper;
 using LeakGas.Business.Interfaces;
 using LeakGas.Business.Interfaces.Data;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace LeakGas.Api.Controllers
@@ -12,20 +15,28 @@ namespace LeakGas.Api.Controllers
     public class CondominioController : MainController
     {
         private readonly ICondominioRepository _condominioRepository;
-        public CondominioController(INotificador notificador, ICondominioRepository condominioRepository) : base(notificador)
+        private readonly IUsuarioCondominioRepository _usuarioCondominioRepository;
+        private readonly IMapper _mapper;
+        public CondominioController(INotificador notificador, ICondominioRepository condominioRepository, IUsuarioCondominioRepository usuarioCondominioRepository, IMapper mapper) : base(notificador)
         {
             _condominioRepository = condominioRepository;
+            _usuarioCondominioRepository = usuarioCondominioRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        [SwaggerResponse(200, type: typeof(Response))]
+        [SwaggerResponse(200, type: typeof(Response<CondominioDTO>))]
         public async Task<ActionResult> ListaCondominiosByIdUsuario(int idUsuario)
         {
             try
             {
                 if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-                return CustomResponse();
+                var listaUsuCondo =  await _usuarioCondominioRepository.BuscarListaCondominioPorIdUsuario(idUsuario);
+
+                var response = _mapper.Map<IEnumerable<CondominioDTO>>(listaUsuCondo);
+
+                return CustomResponse(response);
             }
             catch (System.Exception e)
             {

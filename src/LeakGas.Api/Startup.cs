@@ -37,6 +37,7 @@ namespace LeakGas.Api
             {
                 options.UseOracle(Configuration.GetConnectionString("DefaultConnection"));
             });
+            services.AddAutoMapper(typeof(Startup));
             services.ResolveDependencies();
             services.AddControllers();
             services.Configure<ApiBehaviorOptions>(options =>

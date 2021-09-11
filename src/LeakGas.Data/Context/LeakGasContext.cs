@@ -28,5 +28,11 @@ namespace LeakGas.Data.Context
         {
 
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(LeakGasContext).Assembly);
+        }
     }
 }
