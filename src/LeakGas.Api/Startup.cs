@@ -29,6 +29,10 @@ namespace LeakGas.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
             services.AddDbContext<LeakGasContext>(options =>
             {
                 options.UseOracle(Configuration.GetConnectionString("DefaultConnection"));
@@ -88,6 +92,8 @@ namespace LeakGas.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
