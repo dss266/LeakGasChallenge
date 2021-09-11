@@ -30,7 +30,7 @@ namespace LeakGas.Api.Controllers
 
                 if (resp.Count > 0)
                 {
-                    return CustomResponse();
+                    return CustomResponse(new { IdUsuario = resp[0].IdUsuario });
                 }
                 NotificarErro("Usuário ou senha incorretos");
                 return CustomResponse();

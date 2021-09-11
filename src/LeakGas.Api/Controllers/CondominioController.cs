@@ -30,8 +30,6 @@ namespace LeakGas.Api.Controllers
         {
             try
             {
-                if (!ModelState.IsValid) return CustomResponse(ModelState);
-
                 var listaUsuCondo =  await _usuarioCondominioRepository.BuscarListaCondominioPorIdUsuario(idUsuario);
 
                 var response = _mapper.Map<IEnumerable<CondominioDTO>>(listaUsuCondo);
