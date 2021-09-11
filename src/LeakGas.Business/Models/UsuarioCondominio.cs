@@ -14,5 +14,8 @@ namespace LeakGas.Business.Models
         [Column("FK_ID_CONDOMINIO")]
 
         public int IdCondominio { get; set; }
+
+        public virtual Condominio Condominio { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }
