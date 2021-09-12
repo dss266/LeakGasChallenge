@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace LeakGas.Api.Controllers
 {
@@ -15,12 +16,12 @@ namespace LeakGas.Api.Controllers
     public class CondominioController : MainController
     {
         private readonly ICondominioRepository _condominioRepository;
-        private readonly IUsuarioApartamentoRepository _usuarioCondominioRepository;
+        private readonly IUsuarioRepository _usuarioRepository;
         private readonly IMapper _mapper;
-        public CondominioController(INotificador notificador, ICondominioRepository condominioRepository, IUsuarioApartamentoRepository usuarioCondominioRepository, IMapper mapper) : base(notificador)
+        public CondominioController(INotificador notificador, ICondominioRepository condominioRepository, IUsuarioRepository usuarioRepository, IMapper mapper) : base(notificador)
         {
             _condominioRepository = condominioRepository;
-            _usuarioCondominioRepository = usuarioCondominioRepository;
+            _usuarioRepository = usuarioRepository;
             _mapper = mapper;
         }
 
@@ -30,9 +31,11 @@ namespace LeakGas.Api.Controllers
         {
             try
             {
-                var listaUsuCondo =  await _usuarioCondominioRepository.BuscarListaCondominioPorIdUsuario(idUsuario);
+                var listaUsuCondo =  await _usuarioRepository.BuscarCondominioPorUsuario(idUsuario);
 
-                var response = _mapper.Map<IEnumerable<CondominioDTO>>(listaUsuCondo);
+                var condominios = listaUsuCondo.ToList()[0].UsuariosApartamentos.Select(ua => ua.Apartamento.Condominio);
+
+                var response = _mapper.Map<IEnumerable<CondominioDTO>>(condominios);
 
                 return CustomResponse(response);
             }
