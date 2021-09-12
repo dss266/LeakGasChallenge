@@ -20,7 +20,7 @@ namespace LeakGas.Api.Configuration
                 .ForMember(dest => dest.Cep, opt => opt.MapFrom(src => src.Condominio.Cep))
                 .ForMember(dest => dest.Endereco, opt => opt.MapFrom(src => src.Condominio.Endereco));
 
-            CreateMap<ViewAlarme, OcorrenciasDTO>().ReverseMap();
+            CreateMap<ViewAlarme, OcorrenciasDTO>().ForMember(dest => dest.Ativo, opt => opt.MapFrom(src => src.DescricaoStatus != null && src.DescricaoStatus != "FECHADO" ? true : false)).ReverseMap();
         }
     }
 }

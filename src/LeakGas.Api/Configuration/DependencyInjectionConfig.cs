@@ -24,6 +24,7 @@ namespace LeakGas.Api.Configuration
             services.AddScoped<IOcorrenciaRepository, OcorrenciaRepository>();
             services.AddScoped<ICondominioRepository, CondominioRepository>();
             services.AddScoped<IUsuarioCondominioRepository, UsuarioCondominioRepository>();
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
             #endregion
 
