@@ -14,6 +14,7 @@ namespace LeakGas.Api.Configuration
         {
 
             CreateMap<Condominio, CondominioDTO>().ReverseMap();
+            CreateMap<Usuario, UsuarioDTO>().ReverseMap();
 
             CreateMap<ViewAlarme, OcorrenciasDTO>().ForMember(dest => dest.Ativo, opt => opt.MapFrom(src => src.DescricaoStatus != null && src.DescricaoStatus != "FECHADO" ? true : false)).ReverseMap();
         }

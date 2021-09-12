@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using LeakGas.Api.DTO;
 using LeakGas.Api.Wrapper;
 using LeakGas.Business.Interfaces;
 using LeakGas.Business.Interfaces.Data;
+using LeakGas.Business.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -18,11 +21,13 @@ namespace LeakGas.Api.Controllers
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly ILoginRepository _loginRepository;
         private readonly IUsuarioApartamentoRepository _usuarioApartamentoRepository;
-        public UsuarioController(INotificador notificador, IUsuarioRepository usuarioRepository, ILoginRepository loginRepository, IUsuarioApartamentoRepository usuarioApartamentoRepository) : base(notificador)
+        private readonly IMapper _mapper;
+        public UsuarioController(INotificador notificador, IUsuarioRepository usuarioRepository, ILoginRepository loginRepository, IUsuarioApartamentoRepository usuarioApartamentoRepository, IMapper mapper) : base(notificador)
         {
             _usuarioRepository = usuarioRepository;
             _loginRepository = loginRepository;
             _usuarioApartamentoRepository = usuarioApartamentoRepository;
+            _mapper = mapper;
         }
 
         [HttpDelete]
@@ -61,6 +66,26 @@ namespace LeakGas.Api.Controllers
                 }
 
                 await _usuarioRepository.Remover(usuario);
+            }
+            catch (System.Exception e)
+            {
+
+                NotificarErro(e.Message);
+            }
+            return CustomResponse();
+        }
+
+        [HttpPut]
+        [SwaggerResponse(200, type: typeof(Response))]
+        public async Task<ActionResult> AtualizarUsuario(UsuarioDTO usuario)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+                var usu = _mapper.Map<Usuario>(usuario);
+
+                await _usuarioRepository.Atualizar(usu);
             }
             catch (System.Exception e)
             {
