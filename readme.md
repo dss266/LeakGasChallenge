@@ -41,7 +41,7 @@ Nosso backend terá como funcionalidades as funções básicas (CRUD) de usuári
 |Nome   |Path   | Verbo |Ação   |
 | ------------ | ------------ | ------------ | ------------ |
 |Index   |/Condominio   |GET   | Listar todos os condomínios  |
-|Show   |/Condominio/:id   |GET   | Mostrar dados de um condomínio  |
+
 
 ###### Ocorrência Vazamento
 |Nome   |Path   | Verbo |Ação   |
@@ -52,15 +52,13 @@ Nosso backend terá como funcionalidades as funções básicas (CRUD) de usuári
 |Nome   |Path   | Verbo |Ação   |
 | ------------ | ------------ | ------------ | ------------ |
 |Index   |/ocorrencia   |GET   | Listar todas as ocorrências  |
-|Show   |/ocorrencia/:id   |GET   | Mostrar dados de uma ocorrência  |
 
 ###### Usuário
 |Nome   |Path   | Verbo |Ação   |
 | ------------ | ------------ | ------------ | ------------ |
 |Index   |/usuario   |GET   | Listar todos os usuários  |
 |Create   |/usuario   |POST   | Criar um novo usuário|
-|Show   |/usuario/:id   |GET   | Mostrar dados de um usuário  |
 |Update   |/usuario/:id   |PUT   | Atualizar um usuário|
-|Delete   |/usuario/:id   |DELETE   | Apaga um usuário
+|Delete   |/usuario/:id   |DELETE   | Apaga um usuário|
 
 
