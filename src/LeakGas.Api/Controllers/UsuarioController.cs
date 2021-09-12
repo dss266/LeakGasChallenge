@@ -133,9 +133,8 @@ namespace LeakGas.Api.Controllers
                 if (!ModelState.IsValid) return CustomResponse(ModelState);
 
 
-                //var resposta = await _usuarioRepository.BuscarViewPorCondominio(idCondominio);
+                await _usuarioRepository.CadastroProcedure(usuarioDTO.Nome, usuarioDTO.Cpf, usuarioDTO.Telefone, usuarioDTO.Login, usuarioDTO.Senha, usuarioDTO.NivelAcesso);
 
-                return CustomResponse(usu);
             }
             catch (System.Exception e)
             {

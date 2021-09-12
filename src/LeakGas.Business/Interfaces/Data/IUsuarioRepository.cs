@@ -9,6 +9,6 @@ namespace LeakGas.Business.Interfaces.Data
         Task<IEnumerable<Usuario>> BuscarCondominioPorUsuario(int idUsuario);
         Task<IEnumerable<ViewUsuario>> BuscarViewPorCondominio(int idCondominio);
 
-        Task CadastroProcedure(string nome, int cpf, int telefone, string login, string senha, int nivelAcesso);
+        Task CadastroProcedure(string nome, long cpf, long telefone, string login, string senha, int nivelAcesso);
     }
 }
