@@ -133,7 +133,7 @@ namespace LeakGas.Api.Controllers
                 if (!ModelState.IsValid) return CustomResponse(ModelState);
 
 
-                await _usuarioRepository.CadastroProcedure(usuarioDTO.Nome, usuarioDTO.Cpf, usuarioDTO.Telefone, usuarioDTO.Login, usuarioDTO.Senha, usuarioDTO.NivelAcesso);
+                 _usuarioRepository.CadastroProcedure(usuarioDTO.Nome, usuarioDTO.Cpf, usuarioDTO.Telefone, usuarioDTO.Login, usuarioDTO.Senha, usuarioDTO.NivelAcesso);
 
             }
             catch (System.Exception e)
