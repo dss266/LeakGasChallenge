@@ -15,9 +15,9 @@ namespace LeakGas.Api.Controllers
     public class CondominioController : MainController
     {
         private readonly ICondominioRepository _condominioRepository;
-        private readonly IUsuarioCondominioRepository _usuarioCondominioRepository;
+        private readonly IUsuarioApartamentoRepository _usuarioCondominioRepository;
         private readonly IMapper _mapper;
-        public CondominioController(INotificador notificador, ICondominioRepository condominioRepository, IUsuarioCondominioRepository usuarioCondominioRepository, IMapper mapper) : base(notificador)
+        public CondominioController(INotificador notificador, ICondominioRepository condominioRepository, IUsuarioApartamentoRepository usuarioCondominioRepository, IMapper mapper) : base(notificador)
         {
             _condominioRepository = condominioRepository;
             _usuarioCondominioRepository = usuarioCondominioRepository;
@@ -43,7 +43,5 @@ namespace LeakGas.Api.Controllers
             }
             return CustomResponse();
         }
-
-        ///TODO: Fazer método que trás occorrências abertas por condominio
     }
 }

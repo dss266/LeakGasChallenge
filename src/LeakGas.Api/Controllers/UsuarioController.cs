@@ -16,20 +16,31 @@ namespace LeakGas.Api.Controllers
     public class UsuarioController : MainController
     {
         private readonly IUsuarioRepository _usuarioRepository;
-        public UsuarioController(INotificador notificador, IUsuarioRepository usuarioRepository) : base(notificador)
+        private readonly ILoginRepository _loginRepository;
+        public UsuarioController(INotificador notificador, IUsuarioRepository usuarioRepository, ILoginRepository loginRepository) : base(notificador)
         {
             _usuarioRepository = usuarioRepository;
+            _loginRepository = loginRepository;
         }
 
         [HttpDelete]
         [SwaggerResponse(200, type: typeof(Response))]
-        public async Task<ActionResult> DeletarUsuario()
+        public async Task<ActionResult> DeletarUsuario(int idUsuario)
         {
             try
             {
                 if (!ModelState.IsValid) return CustomResponse(ModelState);
+                var usuario = await _usuarioRepository.ObterPorId(idUsuario);
+                if(usuario == null)
+                {
+                    NotificarErro($"Usuário com id {idUsuario} não encontrado no sistema.");
+                    return CustomResponse();
+                }
+                var loginUsu =  _loginRepository.BuscarLoginPorIdUsuario(idUsuario);
 
-               
+                await _loginRepository.Remover(loginUsu);
+
+                //await _usuarioRepository.Remover(usuario);
             }
             catch (System.Exception e)
             {

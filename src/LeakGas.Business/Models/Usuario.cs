@@ -9,18 +9,18 @@ namespace LeakGas.Business.Models
         [Column("ID_USUARIO")]
         public int Id { get; set; }
         [Column("FK_NIVEL_DE_ACESSO")]
-        public int IdNivelAcesso { get; set; }
+        public long IdNivelAcesso { get; set; }
         [Column("NM_USUARIO")]
 
         public string Nome { get; set; }
         [Column("NR_DOCUMENTO")]
 
-        public int NrDocumento { get; set; }
+        public long NrDocumento { get; set; }
         [Column("NR_TELEFONE")]
 
-        public int Telefone { get; set; }
+        public long Telefone { get; set; }
 
-        public virtual IEnumerable<UsuarioCondominio> UsuariosCondominios { get; set; }
+        public virtual IEnumerable<UsuarioApartamento> UsuariosCondominios { get; set; }
 
     }
 }
