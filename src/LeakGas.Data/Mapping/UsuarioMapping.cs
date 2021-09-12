@@ -8,7 +8,7 @@ namespace LeakGas.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
-            builder.HasMany(u => u.UsuariosCondominios)
+            builder.HasMany(u => u.UsuariosApartamentos)
                     .WithOne(uc => uc.Usuario)
                     .HasForeignKey(uc => uc.IdUsuario);
         }

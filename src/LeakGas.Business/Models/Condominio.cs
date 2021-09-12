@@ -17,6 +17,5 @@ namespace LeakGas.Business.Models
         [Column("NR_ENDERECO")]
         public int NumeroEndereco { get; set; }
 
-        public virtual IEnumerable<UsuarioApartamento> UsuariosCondominios { get; set; }
     }
 }

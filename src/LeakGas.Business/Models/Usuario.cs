@@ -20,7 +20,7 @@ namespace LeakGas.Business.Models
 
         public long Telefone { get; set; }
 
-        public virtual IEnumerable<UsuarioApartamento> UsuariosCondominios { get; set; }
+        public virtual IEnumerable<UsuarioApartamento> UsuariosApartamentos { get; set; }
 
     }
 }

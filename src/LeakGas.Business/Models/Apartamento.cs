@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LeakGas.Business.Models
 {
@@ -15,5 +16,9 @@ namespace LeakGas.Business.Models
         public int NrApartamento { get; set; }
 
         public string Bloco { get; set; }
+
+        public virtual IEnumerable<UsuarioApartamento> UsuariosApartamentos { get; set; }
+
+        public virtual Condominio Condominio { get; set; }
     }
 }
