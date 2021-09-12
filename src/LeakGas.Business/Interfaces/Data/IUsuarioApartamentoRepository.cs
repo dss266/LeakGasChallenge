@@ -7,5 +7,6 @@ namespace LeakGas.Business.Interfaces.Data
     public interface IUsuarioApartamentoRepository : IRepository<UsuarioApartamento>
     {
         Task<IEnumerable<UsuarioApartamento>> BuscarListaCondominioPorIdUsuario(int idUsuario);
+
     }
 }

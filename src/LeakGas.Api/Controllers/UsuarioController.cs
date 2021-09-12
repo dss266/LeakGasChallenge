@@ -17,10 +17,12 @@ namespace LeakGas.Api.Controllers
     {
         private readonly IUsuarioRepository _usuarioRepository;
         private readonly ILoginRepository _loginRepository;
-        public UsuarioController(INotificador notificador, IUsuarioRepository usuarioRepository, ILoginRepository loginRepository) : base(notificador)
+        private readonly IUsuarioApartamentoRepository _usuarioApartamentoRepository;
+        public UsuarioController(INotificador notificador, IUsuarioRepository usuarioRepository, ILoginRepository loginRepository, IUsuarioApartamentoRepository usuarioApartamentoRepository) : base(notificador)
         {
             _usuarioRepository = usuarioRepository;
             _loginRepository = loginRepository;
+            _usuarioApartamentoRepository = usuarioApartamentoRepository;
         }
 
         [HttpDelete]
@@ -30,17 +32,35 @@ namespace LeakGas.Api.Controllers
             try
             {
                 if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+                if (idUsuario <= 0)
+                {
+                    NotificarErro("Id inválido");
+                    return CustomResponse();
+                }
+
                 var usuario = await _usuarioRepository.ObterPorId(idUsuario);
-                if(usuario == null)
+                if (usuario == null)
                 {
                     NotificarErro($"Usuário com id {idUsuario} não encontrado no sistema.");
                     return CustomResponse();
                 }
-                var loginUsu =  _loginRepository.BuscarLoginPorIdUsuario(idUsuario);
+                var loginUsu = _loginRepository.BuscarLoginPorIdUsuario(idUsuario);
 
-                await _loginRepository.Remover(loginUsu);
+                if (loginUsu != null)
+                {
 
-                //await _usuarioRepository.Remover(usuario);
+                    await _loginRepository.Remover(loginUsu);
+                }
+
+                var listaUsuarioApto = await _usuarioApartamentoRepository.Buscar(ua => ua.IdUsuario == idUsuario);
+
+                foreach (var item in listaUsuarioApto)
+                {
+                    await _usuarioApartamentoRepository.Remover(item);
+                }
+
+                await _usuarioRepository.Remover(usuario);
             }
             catch (System.Exception e)
             {

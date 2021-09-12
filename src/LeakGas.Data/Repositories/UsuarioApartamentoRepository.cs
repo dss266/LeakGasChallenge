@@ -16,8 +16,9 @@ namespace LeakGas.Data.Repositories
 
         public async Task<IEnumerable<UsuarioApartamento>> BuscarListaCondominioPorIdUsuario(int idUsuario)
         {
-            return await Db.UsuarioCondominio.AsNoTracking()
+            return await Db.UsuarioApartamento.AsNoTracking()
                 .Include(uc => uc.Apartamento).Where(uc => uc.IdUsuario == idUsuario).ToListAsync();
         }
+
     }
 }

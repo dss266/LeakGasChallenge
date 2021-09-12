@@ -21,7 +21,7 @@ namespace LeakGas.Data.Context
         public DbSet<Ocorrencia> Ocorrencia { get; set; }
         public DbSet<TipoOcorrencia> TipoOcorrencia { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<UsuarioApartamento> UsuarioCondominio { get; set; }
+        public DbSet<UsuarioApartamento> UsuarioApartamento { get; set; }
         public DbSet<Status> Status { get; set; }
         public DbSet<ViewAlarme> ViewAlarme { get; set; }
 
