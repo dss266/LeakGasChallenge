@@ -95,6 +95,23 @@ namespace LeakGas.Api.Controllers
             return CustomResponse();
         }
 
+        [HttpGet]
+        [SwaggerResponse(200, type: typeof(Response))]
+        public async Task<ActionResult> BuscarDadosUsuarioIdCondominio(int idCondominio)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            }
+            catch (System.Exception e)
+            {
+
+                NotificarErro(e.Message);
+            }
+            return CustomResponse();
+        }
+
 
     }
 }
