@@ -4,12 +4,16 @@
 
 ### Grupo Hopp
 **Davi Santos Souza** RM86327
+
 **Lucas Cavalcanti de Paula** RM84420
+
 **Matheus Oliveira Trindade** RM85252
+
 **Pablo André Nunes de Oliveira** RM86328
+
 **Ruan Barros Araújo** RM84584
 
-##Objetivo e escopo
+## Objetivo e escopo
 
 A empresa Plusoft nos apresentou os diversos segmentos onde atua com seus sistemas de CRM e decidimos desenvolver uma solução que fosse impactar o segmento de seguros residenciais. Uma das coberturas comuns em apólices de seguros residenciais é a de danos causados por vazamentos de gás, tais como possíveis explosões; casos que vem aumentando significativamente devido à falta de eficiência dos órgãos fiscalizadores.
 
