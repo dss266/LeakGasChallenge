@@ -17,6 +17,10 @@ namespace LeakGas.Business.Models
         [Column("FK_ID_NOTIFICACAO")]
 
         public int IdNotificacao { get; set; }
+
+        [Column("FK_ID_STATUS")]
+        public int IdStatus { get; set; }
+
         [Column("DT_OCORRENCIA")]
 
         public DateTime DataOcorrencia { get; set; }

@@ -17,6 +17,7 @@ namespace LeakGas.Api.Configuration
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Condominio.Id))
                 .ForMember(dest => dest.Nome, opt => opt.MapFrom(src => src.Condominio.Nome))
                 .ForMember(dest => dest.NumeroEndereco, opt => opt.MapFrom(src => src.Condominio.NumeroEndereco))
+                .ForMember(dest => dest.Cep, opt => opt.MapFrom(src => src.Condominio.Cep))
                 .ForMember(dest => dest.Endereco, opt => opt.MapFrom(src => src.Condominio.Endereco));
 
 

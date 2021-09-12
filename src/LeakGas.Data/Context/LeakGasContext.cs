@@ -22,6 +22,7 @@ namespace LeakGas.Data.Context
         public DbSet<TipoOcorrencia> TipoOcorrencia { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<UsuarioCondominio> UsuarioCondominio { get; set; }
+        public DbSet<Status> Status { get; set; }
 
         #endregion
         public LeakGasContext(DbContextOptions<LeakGasContext> options) : base(options)

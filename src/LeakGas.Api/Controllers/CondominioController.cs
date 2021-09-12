@@ -43,5 +43,7 @@ namespace LeakGas.Api.Controllers
             }
             return CustomResponse();
         }
+
+        ///TODO: Fazer método que trás occorrências abertas por condominio
     }
 }
