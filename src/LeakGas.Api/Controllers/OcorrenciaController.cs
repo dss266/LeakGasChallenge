@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using LeakGas.Api.DTO;
 using LeakGas.Api.Wrapper;
 using LeakGas.Business.Interfaces;
 using LeakGas.Business.Interfaces.Data;
@@ -16,9 +18,11 @@ namespace LeakGas.Api.Controllers
     public class OcorrenciaController : MainController
     {
         private readonly IOcorrenciaRepository _ocorrenciaRepository;
-        public OcorrenciaController(INotificador notificador, IOcorrenciaRepository ocorrenciaRepository) : base(notificador)
+        private readonly IMapper _mapper;
+        public OcorrenciaController(INotificador notificador, IOcorrenciaRepository ocorrenciaRepository, IMapper mapper) : base(notificador)
         {
             _ocorrenciaRepository = ocorrenciaRepository;
+            _mapper = mapper;
         }
 
         [HttpPost("vazamento")]
@@ -51,6 +55,30 @@ namespace LeakGas.Api.Controllers
                     NotificarErro("Id inválido.");
                     return CustomResponse();
                 }
+            }
+            catch (Exception e)
+            {
+
+                NotificarErro(e.Message);
+            }
+            return CustomResponse();
+        }
+
+        [HttpGet]
+        [SwaggerResponse(200, type: typeof(Response<OcorrenciasDTO>))]
+        public async Task<ActionResult> PegarOcorrenciaPorCondominio(int idCondominio)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+
+                var listaViewAlarme = await _ocorrenciaRepository.PegarViewAlarme(idCondominio);
+
+                var response = _mapper.Map<IEnumerable<OcorrenciasDTO>>(listaViewAlarme);
+
+
+                return CustomResponse(response);
             }
             catch (Exception e)
             {

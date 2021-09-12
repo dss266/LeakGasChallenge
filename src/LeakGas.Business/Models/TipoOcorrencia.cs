@@ -2,7 +2,7 @@
 
 namespace LeakGas.Business.Models
 {
-    [Table("TP_TP_OCORRENCIA")]
+    [Table("TB_TP_OCORRENCIAS")]
     public class TipoOcorrencia
     {
         [Column("ID_TP_OCORRENCIA")]

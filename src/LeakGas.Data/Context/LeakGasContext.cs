@@ -23,6 +23,7 @@ namespace LeakGas.Data.Context
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<UsuarioCondominio> UsuarioCondominio { get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<ViewAlarme> ViewAlarme { get; set; }
 
         #endregion
         public LeakGasContext(DbContextOptions<LeakGasContext> options) : base(options)

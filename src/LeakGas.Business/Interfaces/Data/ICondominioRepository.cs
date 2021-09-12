@@ -6,5 +6,6 @@ namespace LeakGas.Business.Interfaces.Data
 {
     public interface ICondominioRepository : IRepository<Condominio>
     {
+        
     }
 }
