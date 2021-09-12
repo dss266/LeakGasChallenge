@@ -96,7 +96,7 @@ namespace LeakGas.Api.Controllers
             return CustomResponse();
         }
 
-        [HttpGet("dados-usuario-condominio")]
+        [HttpGet()]
         [SwaggerResponse(200, type: typeof(Response<IEnumerable<UsuarioDadosDTO>>))]
         public async Task<ActionResult> BuscarDadosUsuarioIdCondominio(int idCondominio)
         {
