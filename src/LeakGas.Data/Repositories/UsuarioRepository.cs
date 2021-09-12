@@ -23,5 +23,10 @@ namespace LeakGas.Data.Repositories
         {
             return await Db.ViewUsuario.AsNoTracking().Where(vu => vu.IdCondominio == idCondominio).ToListAsync();
         }
+
+        public async Task CadastroProcedure(string nome, int cpf, int telefone, string login, string senha, int nivelAcesso)
+        {
+            await Db.Database.ExecuteSqlRawAsync($"EXECUTE P_INSERT_NOVO_USUARIO({nome},{cpf},{telefone},{login},{senha},{nivelAcesso});");
+        }
     }
 }

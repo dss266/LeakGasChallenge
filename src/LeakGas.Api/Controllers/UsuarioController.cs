@@ -124,6 +124,27 @@ namespace LeakGas.Api.Controllers
             return CustomResponse();
         }
 
+        [HttpPost]
+        [SwaggerResponse(200, type: typeof(Response))]
+        public async Task<ActionResult> CadastrarUsuario(CadastroUsuarioDTO usuarioDTO)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+
+                //var resposta = await _usuarioRepository.BuscarViewPorCondominio(idCondominio);
+
+                return CustomResponse(usu);
+            }
+            catch (System.Exception e)
+            {
+
+                NotificarErro(e.Message);
+            }
+            return CustomResponse();
+        }
+
 
     }
 }
