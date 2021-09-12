@@ -28,7 +28,8 @@ namespace LeakGas.Business.Models
 
         [Column("ID_CONDOMINIO")]
         public int IdCondominio { get; set; }
-        [Column("NR_ENDERECO")]
-        public int NumeroEndereco { get; set; }
+
+        [Column("NM_CONDOMINIO")]
+        public string NomeCondominio { get; set; }
     }
 }

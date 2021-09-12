@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -95,14 +96,25 @@ namespace LeakGas.Api.Controllers
             return CustomResponse();
         }
 
-        [HttpGet]
-        [SwaggerResponse(200, type: typeof(Response))]
+        [HttpGet("dados-usuario-condominio")]
+        [SwaggerResponse(200, type: typeof(Response<IEnumerable<UsuarioDadosDTO>>))]
         public async Task<ActionResult> BuscarDadosUsuarioIdCondominio(int idCondominio)
         {
             try
             {
                 if (!ModelState.IsValid) return CustomResponse(ModelState);
 
+                if (idCondominio <= 0)
+                {
+                    NotificarErro("Id inválido");
+                    return CustomResponse();
+                }
+
+                var resposta = await _usuarioRepository.BuscarViewPorCondominio(idCondominio);
+
+                var usu = _mapper.Map<IEnumerable<UsuarioDadosDTO>>(resposta);
+
+                return CustomResponse(usu);
             }
             catch (System.Exception e)
             {
