@@ -6,7 +6,7 @@ namespace LeakGas.Business.Models
     [Table("TB_OCORRENCIAS")]
     public class Ocorrencia
     {
-        [Column("ID_OCORENCIAS")]
+        [Column("ID_OCORRECIA")]
         public int Id { get; set; }
         [Column("FK_ID_APARTAMENTO")]
 
