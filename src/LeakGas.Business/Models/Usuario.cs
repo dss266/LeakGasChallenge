@@ -18,7 +18,7 @@ namespace LeakGas.Business.Models
         public long NrDocumento { get; set; }
         [Column("NR_TELEFONE")]
 
-        public long Telefone { get; set; }
+        public string Telefone { get; set; }
 
         public virtual IEnumerable<UsuarioApartamento> UsuariosApartamentos { get; set; }
 
